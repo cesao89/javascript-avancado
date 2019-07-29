@@ -11,7 +11,7 @@
     
     <h1 class="text-center">Negociações</h1>
     
-    <form class="form">
+    <form class="form" onsubmit="negociacaoController.adiciona(event)">
         
         <div class="form-group">
             <label for="data">Data</label>
@@ -59,29 +59,9 @@
         </tfoot>
     </table>
     <script src="js/app/models/Negociacao.js"></script>
+    <script src="js/app/controller/NegociacaoController.js"></script>
     <script>
-        // Exemplo de Negociação
-        let hoje = new Date();
-        let n1 = new Negociacao(hoje, 5, 700);
-        
-        // Testando vunerabilidade do objeto imutavel
-        console.log(Object.isFrozen(n1));
-        n1._quantidade = 1000;
-        console.log(n1.data);
-        n1.data.setDate(11);
-        hoje.setDate(11);
-
-        // Utilizando o metodo GET para funçoes de getValue()
-        console.log(n1.data);
-        console.log(n1.quantidade);
-        console.log(n1.valor);
-        console.log(n1.volume);
-
-        // Utilizar LET para variaveis para dentro do escopo
-        for (let i = 1; i <= 100; i++) {
-            console.log(i);
-        }
-        alert(i);
+        let negociacaoController = new NegociacaoController();
     </script>
 </body>
 </html>
